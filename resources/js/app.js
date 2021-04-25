@@ -11,6 +11,7 @@ import QuestionSetsEditComponent from "./components/QuestionSetsEditComponent";
 
 import ExaminationComponent from "./components/ExaminationComponent"
 
+import ExampleComponent from "./components/ExampleComponent"
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/ja'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -74,6 +75,12 @@ const router = new VueRouter({
             path: '/examination/:questionSetId',
             name: 'examination',
             component: ExaminationComponent,
+            props: true
+        },
+        {
+            path: '/example',
+            name: 'example',
+            component: ExampleComponent,
             props: true
         },
         
