@@ -4674,8 +4674,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_14__.default({
   }, {
     path: '/example',
     name: 'example',
-    component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_9__.default,
-    props: true
+    component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_9__.default
   }]
 });
 /**

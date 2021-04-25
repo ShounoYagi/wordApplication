@@ -80,8 +80,7 @@ const router = new VueRouter({
         {
             path: '/example',
             name: 'example',
-            component: ExampleComponent,
-            props: true
+            component: ExampleComponent
         },
         
     ]
