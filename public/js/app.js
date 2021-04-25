@@ -3545,6 +3545,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -3562,7 +3565,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       questionSet: {},
       questions: [],
-      activeQuestionIndex: 0
+      activeQuestionIndex: 0,
+      flipped: false,
+      reversedCard: false
     };
   },
   computed: {
@@ -3589,9 +3594,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     handleNextClick: function handleNextClick() {
       this.activeQuestionIndex++;
+      if (this.flipped) this.reversedCard = true;else this.reversedCard = false;
     },
     handleReturnClick: function handleReturnClick() {
       this.activeQuestionIndex--;
+      if (this.flipped) this.reversedCard = true;else this.reversedCard = false;
+    },
+    onClickCard: function onClickCard() {
+      this.flipped = !this.flipped;
     }
   },
   created: function created() {
@@ -3728,9 +3738,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    return {
-      flipped: false
-    };
+    return {};
   },
   props: {
     'activeAnswerText': {
@@ -3742,11 +3750,16 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       "default": "",
       required: true
+    },
+    'flipped': {
+      type: Boolean,
+      "default": false,
+      required: true
     }
   },
   methods: {
     onClick: function onClick() {
-      this.flipped = !this.flipped;
+      this.$emit("onClickCard");
     }
   },
   components: {
@@ -4576,7 +4589,7 @@ var api = function api(config) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_HeaderComponent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/HeaderComponent */ "./resources/js/components/HeaderComponent.vue");
 /* harmony import */ var _components_QuestionShowComponent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/QuestionShowComponent */ "./resources/js/components/QuestionShowComponent.vue");
 /* harmony import */ var _components_QuestionCreateComponent__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/QuestionCreateComponent */ "./resources/js/components/QuestionCreateComponent.vue");
@@ -4586,11 +4599,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_QuestionSetsCreateComponent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/QuestionSetsCreateComponent */ "./resources/js/components/QuestionSetsCreateComponent.vue");
 /* harmony import */ var _components_QuestionSetsEditComponent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/QuestionSetsEditComponent */ "./resources/js/components/QuestionSetsEditComponent.vue");
 /* harmony import */ var _components_ExaminationComponent__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/ExaminationComponent */ "./resources/js/components/ExaminationComponent.vue");
-/* harmony import */ var element_ui__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! element-ui */ "./node_modules/element-ui/lib/element-ui.common.js");
-/* harmony import */ var element_ui__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(element_ui__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var element_ui_lib_locale_lang_ja__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! element-ui/lib/locale/lang/ja */ "./node_modules/element-ui/lib/locale/lang/ja.js");
-/* harmony import */ var element_ui_lib_theme_chalk_index_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! element-ui/lib/theme-chalk/index.css */ "./node_modules/element-ui/lib/theme-chalk/index.css");
-/* harmony import */ var element_ui_lib_theme_chalk_display_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! element-ui/lib/theme-chalk/display.css */ "./node_modules/element-ui/lib/theme-chalk/display.css");
+/* harmony import */ var _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/ExampleComponent */ "./resources/js/components/ExampleComponent.vue");
+/* harmony import */ var element_ui__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! element-ui */ "./node_modules/element-ui/lib/element-ui.common.js");
+/* harmony import */ var element_ui__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(element_ui__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var element_ui_lib_locale_lang_ja__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! element-ui/lib/locale/lang/ja */ "./node_modules/element-ui/lib/locale/lang/ja.js");
+/* harmony import */ var element_ui_lib_theme_chalk_index_css__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! element-ui/lib/theme-chalk/index.css */ "./node_modules/element-ui/lib/theme-chalk/index.css");
+/* harmony import */ var element_ui_lib_theme_chalk_display_css__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! element-ui/lib/theme-chalk/display.css */ "./node_modules/element-ui/lib/theme-chalk/display.css");
+
 
 
 
@@ -4614,11 +4629,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_13__.default);
-Vue.use((element_ui__WEBPACK_IMPORTED_MODULE_9___default()), {
-  locale: element_ui_lib_locale_lang_ja__WEBPACK_IMPORTED_MODULE_10__.default
+Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_14__.default);
+Vue.use((element_ui__WEBPACK_IMPORTED_MODULE_10___default()), {
+  locale: element_ui_lib_locale_lang_ja__WEBPACK_IMPORTED_MODULE_11__.default
 });
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_13__.default({
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_14__.default({
   mode: 'history',
   routes: [{
     path: '/questions',
@@ -4655,6 +4670,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_13__.default({
     path: '/examination/:questionSetId',
     name: 'examination',
     component: _components_ExaminationComponent__WEBPACK_IMPORTED_MODULE_8__.default,
+    props: true
+  }, {
+    path: '/example',
+    name: 'example',
+    component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_9__.default,
     props: true
   }]
 });
@@ -102500,12 +102520,27 @@ var render = function() {
         [
           _c("h2", [_vm._v(_vm._s(_vm.questionSet.Name))]),
           _vm._v(" "),
-          _c("QuestionCardComponent", {
-            attrs: {
-              activeAnswerText: _vm.activeAnswerText,
-              activeQuestionText: _vm.activeQuestionText
-            }
-          }),
+          !_vm.reversedCard
+            ? _c("QuestionCardComponent", {
+                attrs: {
+                  flipped: _vm.flipped,
+                  activeAnswerText: _vm.activeAnswerText,
+                  activeQuestionText: _vm.activeQuestionText
+                },
+                on: { onClickCard: _vm.onClickCard }
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.reversedCard
+            ? _c("QuestionCardComponent", {
+                attrs: {
+                  flipped: _vm.flipped,
+                  activeAnswerText: _vm.activeQuestionText,
+                  activeQuestionText: _vm.activeAnswerText
+                },
+                on: { onClickCard: _vm.onClickCard }
+              })
+            : _vm._e(),
           _vm._v(" "),
           _c(
             "div",
@@ -102636,7 +102671,7 @@ var render = function() {
     _c("div", { staticClass: "container" }, [
       _c("nav", { staticClass: "navbar navbar-dark" }, [
         _c("span", { staticClass: "navbar-brand mb-0 h1" }, [
-          _vm._v("Vue Laravel ")
+          _vm._v("単語帳アプリケーション")
         ]),
         _vm._v(" "),
         _c(
