@@ -36,7 +36,7 @@ class GroupingController extends Controller
     {
 
         $targetGrouping = Grouping::where('SetsId',$setsId)->get();
-        \Debugbar::info($targetGrouping);
+
         foreach ($targetGrouping as $key => $groupingData) {
             \Debugbar::info($groupingData);
             $groupingData->delete();
