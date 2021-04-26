@@ -1,11 +1,11 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-6">
+            <div v-bind:class="[ this.$mq === 'phone' ? 'formContainer_phone' : 'formContainer' ]">
                 <form v-on:submit.prevent="submit">
                     <div class="form-group row">
                         <label for="QuestionText" class="col-sm-3 col-form-label">問題文</label>
-                       <input type="text" class="col-sm-9 form-control-plaintext"  id="QuestionText" v-model="question.QuestionText">
+                       <input type="text" class="col-sm-9 form-control"  id="QuestionText" v-model="question.QuestionText">
                     </div>
                     <div class="form-group row">
                         <label for="Answer" class="col-sm-3 col-form-label">答え</label>
@@ -69,3 +69,12 @@
         }
     }
 </script>
+
+<style lang="scss">
+    .formContainer{
+        min-width:600px;
+    }
+    .formContainer_phone{
+        min-width:200px;
+    }
+</style>

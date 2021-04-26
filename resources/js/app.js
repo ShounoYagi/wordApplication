@@ -12,10 +12,14 @@ import QuestionSetsEditComponent from "./components/QuestionSetsEditComponent";
 import ExaminationComponent from "./components/ExaminationComponent"
 
 import ExampleComponent from "./components/ExampleComponent"
+
+//ライブラリ
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/ja'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'element-ui/lib/theme-chalk/display.css'
+import VueMq from 'vue-mq'
+import { Slide } from 'vue-burger-menu'
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -28,6 +32,16 @@ window.Vue = require('vue').default;
 
 Vue.use(VueRouter);
 Vue.use(ElementUI, { locale })
+
+
+Vue.use(VueMq, {
+    breakpoints: { // default breakpoints - customize this
+      phone: 450,
+      tablet:1000,
+      other: Infinity,
+    },
+    defaultBreakpoint: 'phone' // customize this for SSR
+  })
 
 const router = new VueRouter({
     mode: 'history',
@@ -100,6 +114,8 @@ const router = new VueRouter({
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('header-component', HeaderComponent);
+
+Vue.component('slide', Slide);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

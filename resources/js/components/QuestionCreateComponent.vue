@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-6  createContainer">
+            <div  v-bind:class="[ this.$mq === 'phone' ? 'formContainer_phone' : 'formContainer' ]">
                 <form v-on:submit.prevent="submit">
                     <div class="form-group row">
                         <label for="QuestionText" class="col-sm-3 col-form-label">問題文</label>
@@ -39,6 +39,11 @@
                question: {}
            }
        },
+       computed:{
+           createContainer() {
+            return this.$mq === 'phone' ? 'createContainer_phone' : 'createContainer'
+        }
+       },
        methods: {
            submit() {
                api({
@@ -55,7 +60,10 @@
 </script>
 
 <style lang="scss">
-    .createContainer{
+    .formContainer{
         min-width:600px;
+    }
+    .formContainer_phone{
+        min-width:200px;
     }
 </style>

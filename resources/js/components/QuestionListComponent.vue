@@ -1,6 +1,46 @@
 <template>
     <div class="container">
-        <table class="table table-hover">
+
+        <el-table
+            :data="questions"
+            style="width: 100%">
+            <el-table-column
+                label="問題文"
+                prop="QuestionText">
+            </el-table-column>
+            <el-table-column
+                label="答え"
+                prop="Answer">
+            </el-table-column>
+            <!-- <el-table-column
+                label="カテゴリー１"
+                prop="Category1">
+            </el-table-column>
+            <el-table-column
+                label="カテゴリー2"
+                prop="Category2">
+            </el-table-column> -->
+            <el-table-column
+            align="right"
+            width="100%">
+                <template slot-scope="scope">
+                    <el-button
+                    size="mini"
+                    type="primary"
+                    @click="handleView(scope.row)">表示</el-button>
+                    <el-button
+                    size="mini"
+                    type="success"
+                    @click="handleEdit(scope.row)">編集</el-button>
+                    <el-button
+                    size="mini"
+                    type="danger"
+                    @click="deleteQuestion(scope.row)">削除</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+
+        <!-- <table class="table table-hover">
             <thead class="thead-light">
             <tr align="center">
                 <th scope="col">問題文</th>
@@ -31,7 +71,7 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
     </div>
 </template>
 
@@ -54,14 +94,20 @@
                         this.questions = respData;
                     })
             },
-            deleteQuestion(id) {
+            deleteQuestion(rowData) {
                 api({
                         method : 'delete',
-                        url    : '/api/questions/' + id,
+                        url    : '/api/questions/' + rowData.id,
                     })
                    .then((res) => {
                        this.getQuestions();
                    });
+            },
+            handleEdit(rowData) {
+                this.$router.push({name: 'question.edit', params: {questionId: String(rowData.id) }});
+            },
+            handleView(rowData){
+                this.$router.push({name: 'question.show', params: {questionId: rowData.id }});
             }
         },
         created() {
