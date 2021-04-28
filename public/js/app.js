@@ -3546,8 +3546,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -3602,6 +3600,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     onClickCard: function onClickCard() {
       this.flipped = !this.flipped;
+    },
+    handleEndClick: function handleEndClick() {
+      this.$router.push({
+        name: 'questionSets.list'
+      });
     }
   },
   created: function created() {
@@ -4583,7 +4586,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     handleEdit: function handleEdit(rowData) {
       this.$router.push({
-        name: 'question.list',
+        name: 'questionSets.edit',
         params: {
           questionSetId: String(rowData.id)
         }
@@ -11111,7 +11114,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".ButtonContainer {\n  display: flex;\n  justify-content: space-between;\n  width: 600px;\n  margin: 0 auto;\n}\n.ButtonContainer__button {\n  font-size: 1.4rem;\n  width: 25%;\n}\n.ButtonContainer__linkButton {\n  font-size: 1.4rem;\n  width: 100%;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".setName_phone {\n  font-size: 1.6rem;\n}\n.setName_tablet {\n  font-size: 2rem;\n}\n.setName_pc {\n  font-size: 2.8rem;\n}\n.ButtonContainer {\n  display: flex;\n  justify-content: space-between;\n  margin: 0 auto;\n}\n.width_600px {\n  width: 600px;\n}\n.width_600px button {\n  font-size: 1.4rem;\n  width: 25%;\n}\n.width_70percent {\n  width: 70%;\n}\n.width_70percent button {\n  font-size: 1.2rem;\n  width: 45%;\n}\n.width_80percent {\n  width: 80%;\n}\n.width_80percent button {\n  font-size: 3.5vw;\n  width: 50%;\n  text-align: center;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11159,7 +11162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".Card {\n  margin: 5rem auto 2rem auto;\n}\n.Card__face, .Card__pattern {\n  width: 100%;\n  height: 100%;\n  border-radius: 20px;\n  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.45);\n  cursor: pointer;\n}\n.Card__pattern {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAiPgo8ZGVmcz4KPHJlY3QgaWQ9InIiIHdpZHRoPSIzMCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2JiMDg1ZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZT0iIzdhMDU0ZCI+PC9yZWN0Pgo8ZyBpZD0icCI+Cjx1c2UgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8dXNlIHk9IjE1IiB4bGluazpocmVmPSIjciI+PC91c2U+Cjx1c2UgeT0iMzAiIHhsaW5rOmhyZWY9IiNyIj48L3VzZT4KPHVzZSB5PSI0NSIgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8L2c+CjwvZGVmcz4KPHVzZSB4bGluazpocmVmPSIjcCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMjUpIHNrZXdZKDQwKSI+PC91c2U+Cjx1c2UgeGxpbms6aHJlZj0iI3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwIDApIHNrZXdZKC00MCkiPjwvdXNlPgo8L3N2Zz4=\");\n}\n.Card__face {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  height: 100%;\n  padding: 15px;\n}\n.Card__value {\n  display: block;\n  font-size: 18pt;\n}\n.Card__value--top {\n  align-self: flex-start;\n}\n.Card__value--bottom {\n  align-self: flex-end;\n}\n.Card__center {\n  display: block;\n  font-size: 32pt;\n  align-self: center;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".Card {\n  margin: 5rem auto 2rem auto;\n}\n.Card__face, .Card__pattern {\n  width: 100%;\n  height: 100%;\n  border-radius: 20px;\n  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.45);\n  cursor: pointer;\n}\n.Card__pattern {\n  background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNjAiIGhlaWdodD0iMzAiPgo8ZGVmcz4KPHJlY3QgaWQ9InIiIHdpZHRoPSIzMCIgaGVpZ2h0PSIxNSIgZmlsbD0iI2JiMDg1ZiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZT0iIzdhMDU0ZCI+PC9yZWN0Pgo8ZyBpZD0icCI+Cjx1c2UgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8dXNlIHk9IjE1IiB4bGluazpocmVmPSIjciI+PC91c2U+Cjx1c2UgeT0iMzAiIHhsaW5rOmhyZWY9IiNyIj48L3VzZT4KPHVzZSB5PSI0NSIgeGxpbms6aHJlZj0iI3IiPjwvdXNlPgo8L2c+CjwvZGVmcz4KPHVzZSB4bGluazpocmVmPSIjcCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAtMjUpIHNrZXdZKDQwKSI+PC91c2U+Cjx1c2UgeGxpbms6aHJlZj0iI3AiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwIDApIHNrZXdZKC00MCkiPjwvdXNlPgo8L3N2Zz4=\");\n}\n.Card__face {\n  display: flex;\n  text-align: center;\n  font-size: 4vw;\n  flex-direction: column;\n  justify-content: center;\n  height: 100%;\n  padding: 15px;\n}\n.Card__value {\n  display: block;\n  font-size: 18pt;\n}\n.Card__value--top {\n  align-self: flex-start;\n}\n.Card__value--bottom {\n  align-self: flex-end;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11183,7 +11186,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".formContainer {\n  min-width: 600px;\n}\n.formContainer_phone {\n  min-width: 200px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".formContainer_pc {\n  min-width: 600px;\n  max-width: 1000px;\n  width: 70%;\n}\n.formContainer_tablet {\n  max-width: 900px;\n  width: 80%;\n}\n.formContainer_phone {\n  max-width: 300px;\n  width: 80%;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11207,7 +11210,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".formContainer {\n  min-width: 600px;\n}\n.formContainer_phone {\n  min-width: 200px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".formContainer_pc {\n  min-width: 600px;\n  max-width: 1000px;\n  width: 70%;\n}\n.formContainer_tablet {\n  max-width: 900px;\n  width: 80%;\n}\n.formContainer_phone {\n  max-width: 300px;\n  width: 80%;\n}\n.col-form-label {\n  padding-left: 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11255,7 +11258,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".listContainer {\n  min-width: 1100px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".formContainer_pc {\n  min-width: 1000px;\n}\n.formContainer_tablet {\n  max-width: 900px;\n  width: 80%;\n}\n.formContainer_phone {\n  max-width: 300px;\n  width: 80%;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".formContainer_pc {\n  min-width: 1000px;\n}\n.formContainer_tablet {\n  max-width: 900px;\n  width: 80%;\n}\n.formContainer_phone {\n  max-width: 300px;\n  width: 80%;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11280,6 +11307,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".setsContainer {\n  min-width: 300px;\n}\n.table {\n  min-width: 300px;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionShowComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionShowComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".formContainer_pc {\n  min-width: 600px;\n  max-width: 1000px;\n  width: 70%;\n}\n.formContainer_tablet {\n  max-width: 900px;\n  width: 80%;\n}\n.formContainer_phone {\n  max-width: 300px;\n  width: 80%;\n}\n.col-form-label {\n  padding-left: 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -101093,6 +101144,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionSetsEditComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionSetsEditComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionSetsEditComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionSetsListComponent.vue?vue&type=style&index=0&lang=scss&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionSetsListComponent.vue?vue&type=style&index=0&lang=scss& ***!
@@ -101120,6 +101201,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionSetsListComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionShowComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionShowComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionShowComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./QuestionShowComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionShowComponent.vue?vue&type=style&index=0&lang=scss&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionShowComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionShowComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
 
 /***/ }),
 
@@ -105496,15 +105607,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _QuestionSetsEditComponent_vue_vue_type_template_id_1e274421___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./QuestionSetsEditComponent.vue?vue&type=template&id=1e274421& */ "./resources/js/components/QuestionSetsEditComponent.vue?vue&type=template&id=1e274421&");
 /* harmony import */ var _QuestionSetsEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuestionSetsEditComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/QuestionSetsEditComponent.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _QuestionSetsEditComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
   _QuestionSetsEditComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _QuestionSetsEditComponent_vue_vue_type_template_id_1e274421___WEBPACK_IMPORTED_MODULE_0__.render,
   _QuestionSetsEditComponent_vue_vue_type_template_id_1e274421___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -105576,15 +105689,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _QuestionShowComponent_vue_vue_type_template_id_f3050c42___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./QuestionShowComponent.vue?vue&type=template&id=f3050c42& */ "./resources/js/components/QuestionShowComponent.vue?vue&type=template&id=f3050c42&");
 /* harmony import */ var _QuestionShowComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QuestionShowComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/QuestionShowComponent.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _QuestionShowComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QuestionShowComponent.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/components/QuestionShowComponent.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
   _QuestionShowComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
   _QuestionShowComponent_vue_vue_type_template_id_f3050c42___WEBPACK_IMPORTED_MODULE_0__.render,
   _QuestionShowComponent_vue_vue_type_template_id_f3050c42___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -105869,6 +105984,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionSetsEditComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionSetsEditComponent.vue?vue&type=style&index=0&lang=scss&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/QuestionSetsListComponent.vue?vue&type=style&index=0&lang=scss&":
 /*!*************************************************************************************************!*\
   !*** ./resources/js/components/QuestionSetsListComponent.vue?vue&type=style&index=0&lang=scss& ***!
@@ -105878,6 +106006,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionSetsListComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./QuestionSetsListComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionSetsListComponent.vue?vue&type=style&index=0&lang=scss&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/QuestionShowComponent.vue?vue&type=style&index=0&lang=scss&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/QuestionShowComponent.vue?vue&type=style&index=0&lang=scss& ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_12_0_rules_0_use_3_node_modules_vue_loader_lib_index_js_vue_loader_options_QuestionShowComponent_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader/dist/cjs.js!../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!../../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./QuestionShowComponent.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-12[0].rules[0].use[3]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/QuestionShowComponent.vue?vue&type=style&index=0&lang=scss&");
 
 
 /***/ }),
@@ -106120,7 +106261,17 @@ var render = function() {
         "div",
         { staticClass: "col-sm-12" },
         [
-          _c("h2", [_vm._v(_vm._s(_vm.questionSet.Name))]),
+          _c(
+            "h2",
+            {
+              class: _vm._f("mq")(_vm.$mq, {
+                phone: "setName_phone",
+                tablet: "setName_tablet",
+                other: "setName_pc"
+              })
+            },
+            [_vm._v(_vm._s(_vm.questionSet.Name))]
+          ),
           _vm._v(" "),
           !_vm.reversedCard
             ? _c("QuestionCardComponent", {
@@ -106146,7 +106297,14 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "ButtonContainer" },
+            {
+              staticClass: "ButtonContainer",
+              class: _vm._f("mq")(_vm.$mq, {
+                phone: "width_80percent",
+                tablet: "width_70percent",
+                other: "width_600px"
+              })
+            },
             [
               _c(
                 "el-button",
@@ -106172,22 +106330,13 @@ var render = function() {
                     [_vm._v("次の問題へ")]
                   )
                 : _c(
-                    "router-link",
+                    "el-button",
                     {
                       staticClass: "ButtonContainer__button",
-                      attrs: { to: { name: "questionSets.list" } }
+                      attrs: { type: "success" },
+                      on: { click: _vm.handleEndClick }
                     },
-                    [
-                      _c(
-                        "el-button",
-                        {
-                          staticClass: "ButtonContainer__linkButton",
-                          attrs: { type: "success" }
-                        },
-                        [_vm._v("終了する")]
-                      )
-                    ],
-                    1
+                    [_vm._v("終了する")]
                   )
             ],
             1
@@ -106397,35 +106546,53 @@ var render = function() {
             "flipper",
             {
               staticClass: "Card",
-              attrs: { width: "600px", height: "200px", flipped: _vm.flipped },
+              attrs: {
+                width: _vm._f("mq")(_vm.$mq, {
+                  phone: "90%",
+                  tablet: "80%",
+                  other: "600px"
+                }),
+                height: _vm._f("mq")(_vm.$mq, {
+                  phone: "100px",
+                  tablet: "150px",
+                  other: "200px"
+                }),
+                flipped: _vm.flipped
+              },
               on: { click: _vm.onClick }
             },
             [
               _c(
                 "div",
                 {
+                  ref: "front",
                   staticClass: "Card__face",
                   attrs: { slot: "front" },
                   slot: "front"
                 },
                 [
-                  _c("span", { staticClass: "Card__center" }, [
-                    _vm._v(_vm._s(_vm.activeQuestionText))
-                  ])
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.activeQuestionText) +
+                      "\n                "
+                  )
                 ]
               ),
               _vm._v(" "),
               _c(
                 "div",
                 {
+                  ref: "back",
                   staticClass: "Card__face",
                   attrs: { slot: "back" },
                   slot: "back"
                 },
                 [
-                  _c("span", { staticClass: "Card__center" }, [
-                    _vm._v(_vm._s(_vm.activeAnswerText))
-                  ])
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.activeAnswerText) +
+                      "\n                "
+                  )
                 ]
               )
             ]
@@ -106464,9 +106631,11 @@ var render = function() {
       _c(
         "div",
         {
-          class: [
-            this.$mq === "phone" ? "formContainer_phone" : "formContainer"
-          ]
+          class: _vm._f("mq")(_vm.$mq, {
+            phone: "formContainer_phone",
+            tablet: "formContainer_tablet",
+            other: "formContainer_pc"
+          })
         },
         [
           _c(
@@ -106480,11 +106649,11 @@ var render = function() {
               }
             },
             [
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group colum" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "QuestionText" }
                   },
                   [_vm._v("問題文")]
@@ -106517,11 +106686,11 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group colum" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "Answer" }
                   },
                   [_vm._v("答え")]
@@ -106550,11 +106719,11 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group colum" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "Category1" }
                   },
                   [_vm._v("カテゴリー1")]
@@ -106583,11 +106752,11 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group colum" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "Category2" }
                   },
                   [_vm._v("カテゴリー2")]
@@ -106616,11 +106785,11 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group colum" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "Category3" }
                   },
                   [_vm._v("カテゴリー3")]
@@ -106689,9 +106858,11 @@ var render = function() {
       _c(
         "div",
         {
-          class: [
-            this.$mq === "phone" ? "formContainer_phone" : "formContainer"
-          ]
+          class: _vm._f("mq")(_vm.$mq, {
+            phone: "formContainer_phone",
+            tablet: "formContainer_tablet",
+            other: "formContainer_pc"
+          })
         },
         [
           _c(
@@ -106705,11 +106876,11 @@ var render = function() {
               }
             },
             [
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group column" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "QuestionText" }
                   },
                   [_vm._v("問題文")]
@@ -106742,11 +106913,11 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group column" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "Answer" }
                   },
                   [_vm._v("答え")]
@@ -106775,11 +106946,11 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group column" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm- col-form-label",
                     attrs: { for: "Category1" }
                   },
                   [_vm._v("カテゴリー1")]
@@ -106808,11 +106979,11 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group column" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "Category2" }
                   },
                   [_vm._v("カテゴリー2")]
@@ -106841,11 +107012,11 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group row" }, [
+              _c("div", { staticClass: "form-group column" }, [
                 _c(
                   "label",
                   {
-                    staticClass: "col-sm-3 col-form-label",
+                    staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "Category3" }
                   },
                   [_vm._v("カテゴリー3")]
@@ -107005,129 +107176,139 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-sm-12 listContainer" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.submit($event)
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-1 col-form-label",
-                  attrs: { for: "Name" }
-                },
-                [_vm._v("セット名")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.setName,
-                    expression: "setName"
-                  }
-                ],
-                staticClass: "col-sm-4 form-control",
-                attrs: { type: "text", id: "Name" },
-                domProps: { value: _vm.setName },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.setName = $event.target.value
-                  }
+      _c(
+        "div",
+        {
+          class: _vm._f("mq")(_vm.$mq, {
+            phone: "formContainer_phone",
+            tablet: "formContainer_tablet",
+            other: "formContainer_pc"
+          })
+        },
+        [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.submit($event)
                 }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-1 col-form-label",
-                  attrs: { for: "QuestionsNum" }
-                },
-                [_vm._v("問題数")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "col-sm-1 form-control",
-                attrs: { disabled: "", type: "text", id: "QuestionsNum" },
-                domProps: { value: _vm.getQuestionsNum() }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "el-table",
-              {
-                ref: "multipleTable",
-                staticStyle: { width: "100%" },
-                attrs: { data: _vm.questions },
-                on: { "selection-change": _vm.handleSelectionChange }
-              },
-              [
-                _c("el-table-column", {
-                  attrs: { type: "selection", width: "55" }
-                }),
+              }
+            },
+            [
+              _c("div", { staticClass: "form-group column" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "col-sm-4 col-form-label",
+                    attrs: { for: "Name" }
+                  },
+                  [_vm._v("セット名")]
+                ),
                 _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: {
-                    property: "QuestionText",
-                    label: "問題文",
-                    width: "240"
-                  }
-                }),
-                _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: { property: "Answer", label: "答え", width: "240" }
-                }),
-                _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: {
-                    property: "Category1",
-                    label: "大分類",
-                    width: "120"
-                  }
-                }),
-                _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: {
-                    property: "Category2",
-                    label: "中分類",
-                    width: "120"
-                  }
-                }),
-                _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: {
-                    property: "Category3",
-                    label: "小分類",
-                    width: "120"
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.setName,
+                      expression: "setName"
+                    }
+                  ],
+                  staticClass: "col-sm-4 form-control",
+                  attrs: { type: "text", id: "Name" },
+                  domProps: { value: _vm.setName },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.setName = $event.target.value
+                    }
                   }
                 })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Submit")]
-            )
-          ],
-          1
-        )
-      ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group column" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "col-sm-4 col-form-label",
+                    attrs: { for: "QuestionsNum" }
+                  },
+                  [_vm._v("問題数")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "col-sm-1 form-control",
+                  attrs: { disabled: "", type: "text", id: "QuestionsNum" },
+                  domProps: { value: _vm.getQuestionsNum() }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "el-table",
+                {
+                  ref: "multipleTable",
+                  staticStyle: { width: "100%" },
+                  attrs: { data: _vm.questions },
+                  on: { "selection-change": _vm.handleSelectionChange }
+                },
+                [
+                  _c("el-table-column", {
+                    attrs: { type: "selection", width: "55" }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: {
+                      property: "QuestionText",
+                      label: "問題文",
+                      width: "240"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: { property: "Answer", label: "答え", width: "240" }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: {
+                      property: "Category1",
+                      label: "大分類",
+                      width: "120"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: {
+                      property: "Category2",
+                      label: "中分類",
+                      width: "120"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: {
+                      property: "Category3",
+                      label: "小分類",
+                      width: "120"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                [_vm._v("Submit")]
+              )
+            ],
+            1
+          )
+        ]
+      )
     ])
   ])
 }
@@ -107156,129 +107337,140 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-sm-12" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.submit($event)
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-1 col-form-label",
-                  attrs: { for: "Name" }
-                },
-                [_vm._v("セット名")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.questionSet.Name,
-                    expression: "questionSet.Name"
-                  }
-                ],
-                staticClass: "col-sm-4 form-control",
-                attrs: { type: "text", id: "Name" },
-                domProps: { value: _vm.questionSet.Name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.questionSet, "Name", $event.target.value)
-                  }
+      _c(
+        "div",
+        {
+          staticClass: "col-sm-12",
+          class: _vm._f("mq")(_vm.$mq, {
+            phone: "formContainer_phone",
+            tablet: "formContainer_tablet",
+            other: "formContainer_pc"
+          })
+        },
+        [
+          _c(
+            "form",
+            {
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.submit($event)
                 }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-sm-1 col-form-label",
-                  attrs: { for: "QuestionsNum" }
-                },
-                [_vm._v("問題数")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "col-sm-1 form-control",
-                attrs: { disabled: "", type: "text", id: "QuestionsNum" },
-                domProps: { value: _vm.getQuestionsNum() }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "el-table",
-              {
-                ref: "questionTable",
-                staticStyle: { width: "100%" },
-                attrs: { data: _vm.questions },
-                on: { "selection-change": _vm.handleSelectionChange }
-              },
-              [
-                _c("el-table-column", {
-                  attrs: { type: "selection", width: "55" }
-                }),
+              }
+            },
+            [
+              _c("div", { staticClass: "form-group row" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "col-sm-1 col-form-label",
+                    attrs: { for: "Name" }
+                  },
+                  [_vm._v("セット名")]
+                ),
                 _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: {
-                    property: "QuestionText",
-                    label: "問題文",
-                    width: "240"
-                  }
-                }),
-                _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: { property: "Answer", label: "答え", width: "240" }
-                }),
-                _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: {
-                    property: "Category1",
-                    label: "大分類",
-                    width: "120"
-                  }
-                }),
-                _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: {
-                    property: "Category2",
-                    label: "中分類",
-                    width: "120"
-                  }
-                }),
-                _vm._v(" "),
-                _c("el-table-column", {
-                  attrs: {
-                    property: "Category3",
-                    label: "小分類",
-                    width: "120"
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.questionSet.Name,
+                      expression: "questionSet.Name"
+                    }
+                  ],
+                  staticClass: "col-sm-4 form-control",
+                  attrs: { type: "text", id: "Name" },
+                  domProps: { value: _vm.questionSet.Name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.questionSet, "Name", $event.target.value)
+                    }
                   }
                 })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Submit")]
-            )
-          ],
-          1
-        )
-      ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass: "col-sm-1 col-form-label",
+                    attrs: { for: "QuestionsNum" }
+                  },
+                  [_vm._v("問題数")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "col-sm-1 form-control",
+                  attrs: { disabled: "", type: "text", id: "QuestionsNum" },
+                  domProps: { value: _vm.getQuestionsNum() }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "el-table",
+                {
+                  ref: "questionTable",
+                  staticStyle: { width: "100%" },
+                  attrs: { data: _vm.questions },
+                  on: { "selection-change": _vm.handleSelectionChange }
+                },
+                [
+                  _c("el-table-column", {
+                    attrs: { type: "selection", width: "55" }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: {
+                      property: "QuestionText",
+                      label: "問題文",
+                      width: "240"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: { property: "Answer", label: "答え", width: "240" }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: {
+                      property: "Category1",
+                      label: "大分類",
+                      width: "120"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: {
+                      property: "Category2",
+                      label: "中分類",
+                      width: "120"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("el-table-column", {
+                    attrs: {
+                      property: "Category3",
+                      label: "小分類",
+                      width: "120"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                [_vm._v("Submit")]
+              )
+            ],
+            1
+          )
+        ]
+      )
     ])
   ])
 }
@@ -107406,174 +107598,184 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-sm-6" }, [
-        _c("form", [
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "QuestionText" }
-              },
-              [_vm._v("問題文")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
+      _c(
+        "div",
+        {
+          class: _vm._f("mq")(_vm.$mq, {
+            phone: "formContainer_phone",
+            tablet: "formContainer_tablet",
+            other: "formContainer_pc"
+          })
+        },
+        [
+          _c("form", [
+            _c("div", { staticClass: "form-group column" }, [
+              _c(
+                "label",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.question.QuestionText,
-                  expression: "question.QuestionText"
-                }
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "QuestionText" },
-              domProps: { value: _vm.question.QuestionText },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                  staticClass: "col-sm-9 col-form-label",
+                  attrs: { for: "QuestionText" }
+                },
+                [_vm._v("問題文")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.question.QuestionText,
+                    expression: "question.QuestionText"
                   }
-                  _vm.$set(_vm.question, "QuestionText", $event.target.value)
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", readonly: "", id: "QuestionText" },
+                domProps: { value: _vm.question.QuestionText },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.question, "QuestionText", $event.target.value)
+                  }
                 }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "Answer" }
-              },
-              [_vm._v("答え")]
-            ),
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
+            _c("div", { staticClass: "form-group column" }, [
+              _c(
+                "label",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.question.Answer,
-                  expression: "question.Answer"
-                }
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "Answer" },
-              domProps: { value: _vm.question.Answer },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                  staticClass: "col-sm-9 col-form-label",
+                  attrs: { for: "Answer" }
+                },
+                [_vm._v("答え")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.question.Answer,
+                    expression: "question.Answer"
                   }
-                  _vm.$set(_vm.question, "Answer", $event.target.value)
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", readonly: "", id: "Answer" },
+                domProps: { value: _vm.question.Answer },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.question, "Answer", $event.target.value)
+                  }
                 }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "Category1" }
-              },
-              [_vm._v("カテゴリー1")]
-            ),
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
+            _c("div", { staticClass: "form-group column" }, [
+              _c(
+                "label",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.question.Category1,
-                  expression: "question.Category1"
-                }
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "Category1" },
-              domProps: { value: _vm.question.Category1 },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                  staticClass: "col-sm-9 col-form-label",
+                  attrs: { for: "Category1" }
+                },
+                [_vm._v("カテゴリー1")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.question.Category1,
+                    expression: "question.Category1"
                   }
-                  _vm.$set(_vm.question, "Category1", $event.target.value)
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", readonly: "", id: "Category1" },
+                domProps: { value: _vm.question.Category1 },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.question, "Category1", $event.target.value)
+                  }
                 }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "Category2" }
-              },
-              [_vm._v("カテゴリー2")]
-            ),
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
+            _c("div", { staticClass: "form-group column" }, [
+              _c(
+                "label",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.question.Category2,
-                  expression: "question.Category2"
-                }
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "Category2" },
-              domProps: { value: _vm.question.Category2 },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                  staticClass: "col-sm-9 col-form-label",
+                  attrs: { for: "Category2" }
+                },
+                [_vm._v("カテゴリー2")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.question.Category2,
+                    expression: "question.Category2"
                   }
-                  _vm.$set(_vm.question, "Category2", $event.target.value)
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", readonly: "", id: "Category2" },
+                domProps: { value: _vm.question.Category2 },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.question, "Category2", $event.target.value)
+                  }
                 }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row" }, [
-            _c(
-              "label",
-              {
-                staticClass: "col-sm-3 col-form-label",
-                attrs: { for: "Category3" }
-              },
-              [_vm._v("カテゴリー3")]
-            ),
+              })
+            ]),
             _vm._v(" "),
-            _c("input", {
-              directives: [
+            _c("div", { staticClass: "form-group column" }, [
+              _c(
+                "label",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.question.Category3,
-                  expression: "question.Category3"
-                }
-              ],
-              staticClass: "col-sm-9 form-control-plaintext",
-              attrs: { type: "text", readonly: "", id: "Category3" },
-              domProps: { value: _vm.question.Category3 },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                  staticClass: "col-sm-9 col-form-label",
+                  attrs: { for: "Category3" }
+                },
+                [_vm._v("カテゴリー3")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.question.Category3,
+                    expression: "question.Category3"
                   }
-                  _vm.$set(_vm.question, "Category3", $event.target.value)
+                ],
+                staticClass: "col-sm-9 form-control",
+                attrs: { type: "text", readonly: "", id: "Category3" },
+                domProps: { value: _vm.question.Category3 },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.question, "Category3", $event.target.value)
+                  }
                 }
-              }
-            })
+              })
+            ])
           ])
-        ])
-      ])
+        ]
+      )
     ])
   ])
 }

@@ -5,17 +5,17 @@
 
                 <flipper
                     class="Card"
-                    width="600px"
-                    height="200px"
+                    :width="$mq | mq({ phone: '90%', tablet: '80%', other: '600px' })"
+                    :height="$mq | mq({ phone: '100px', tablet: '150px', other: '200px' })"
                     :flipped="flipped"
                     @click="onClick"
                 >
-                    <div class="Card__face" slot="front">
-                        <span class="Card__center">{{activeQuestionText}}</span>
+                    <div ref="front" class="Card__face" slot="front">
+                        {{activeQuestionText}}
                     </div>
 
-                    <div class="Card__face" slot="back">
-                        <span class="Card__center">{{activeAnswerText}}</span>
+                    <div ref="back" class="Card__face" slot="back">
+                        {{activeAnswerText}}
                     </div>
 
                 </flipper>
@@ -95,6 +95,8 @@
 
   &__face {
     display: flex;
+    text-align: center;
+    font-size: 4vw;
     flex-direction: column;
     justify-content: center;
     height: 100%;
@@ -112,12 +114,6 @@
     &--bottom {
       align-self: flex-end;
     }
-  }
-
-  &__center {
-    display: block;
-    font-size: 32pt;
-    align-self: center;
   }
 }
 </style>

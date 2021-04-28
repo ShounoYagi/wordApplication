@@ -1,15 +1,15 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-12 listContainer" >
+            <div  v-bind:class="$mq | mq({ phone: 'formContainer_phone', tablet: 'formContainer_tablet', other: 'formContainer_pc' })" >
                 <form v-on:submit.prevent="submit">
 
-                    <div class="form-group row">
-                        <label for="Name" class="col-sm-1 col-form-label">セット名</label>
+                    <div class="form-group column">
+                        <label for="Name" class="col-sm-4 col-form-label">セット名</label>
                         <input type="text" class="col-sm-4 form-control" id="Name" v-model="setName">
                     </div>
-                    <div class="form-group row">
-                        <label for="QuestionsNum" class="col-sm-1 col-form-label">問題数</label>
+                    <div class="form-group column">
+                        <label for="QuestionsNum" class="col-sm-4 col-form-label">問題数</label>
                         <input :value="getQuestionsNum()" disabled type="text" class="col-sm-1 form-control" id="QuestionsNum" >
                     </div>
 
@@ -132,7 +132,15 @@
 </script>
 
 <style lang="scss">
-    .listContainer{
-        min-width:1100px;
+    .formContainer_pc{
+        min-width:1000px;
+    }
+    .formContainer_tablet{
+        max-width:900px;
+        width:80%
+    }
+    .formContainer_phone{
+        max-width:300px;
+        width:80%
     }
 </style>

@@ -100,7 +100,7 @@
                    });
             },
             handleEdit(rowData) {
-                this.$router.push({name: 'question.list', params: {questionSetId: String(rowData.id) }});
+                this.$router.push({name: 'questionSets.edit', params: {questionSetId: String(rowData.id) }});
             },
             handleView(rowData){
                 this.$router.push({name: 'examination', params: {questionSetId: String(rowData.id)}});

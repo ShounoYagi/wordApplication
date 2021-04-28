@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-sm-12">
+            <div class="col-sm-12" v-bind:class="$mq | mq({ phone: 'formContainer_phone', tablet: 'formContainer_tablet', other: 'formContainer_pc' })">
                 <form v-on:submit.prevent="submit">
 
                     <div class="form-group row">
@@ -174,3 +174,17 @@
         
     }
 </script>
+
+<style lang="scss">
+    .formContainer_pc{
+        min-width:1000px;
+    }
+    .formContainer_tablet{
+        max-width:900px;
+        width:80%
+    }
+    .formContainer_phone{
+        max-width:300px;
+        width:80%
+    }
+</style>

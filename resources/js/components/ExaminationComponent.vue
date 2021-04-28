@@ -3,21 +3,19 @@
         <div class="row justify-content-center">
             <div class="col-sm-12">
 
-                <h2>{{questionSet.Name}}</h2>
+                <h2 v-bind:class="$mq | mq({ phone: 'setName_phone', tablet: 'setName_tablet', other: 'setName_pc' })">{{questionSet.Name}}</h2>
 
                 <QuestionCardComponent :flipped="flipped" :activeAnswerText="activeAnswerText" :activeQuestionText="activeQuestionText" @onClickCard="onClickCard"
                     v-if = "!reversedCard"/>
                 <QuestionCardComponent :flipped="flipped" :activeAnswerText="activeQuestionText" :activeQuestionText="activeAnswerText" @onClickCard="onClickCard"
                     v-if = "reversedCard"/>
 
-                <div class="ButtonContainer">
+                <div class="ButtonContainer" v-bind:class="$mq | mq({ phone: 'width_80percent', tablet: 'width_70percent', other: 'width_600px' })">
                     <el-button class="ButtonContainer__button" :style="{visibility: activeQuestionIndex != 0 ? 'visible' : 'hidden'}" 
                         v-on:click="handleReturnClick">前の問題へ</el-button>
                     <el-button class="ButtonContainer__button" v-if = "activeQuestionIndex != questions.length -1" 
                         v-on:click="handleNextClick" type="success">次の問題へ</el-button>
-                    <router-link v-bind:to="{name: 'questionSets.list'}" v-else class="ButtonContainer__button" >
-                        <el-button class="ButtonContainer__linkButton" type="success">終了する</el-button>
-                    </router-link>
+                    <el-button class="ButtonContainer__button" v-else type="success" v-on:click="handleEndClick">終了する</el-button>
                 </div>
 
             </div>
@@ -85,6 +83,9 @@
             },
             onClickCard () {
                 this.flipped = !this.flipped;
+            },
+            handleEndClick(){
+                this.$router.push({ name: 'questionSets.list'})
             }
         },
         created() {
@@ -95,23 +96,42 @@
 </script>
 
 <style lang="scss">
+.setName_phone{
+    font-size: 1.6rem;
+}
+.setName_tablet{
+    font-size: 2rem;
+}
+.setName_pc{
+    font-size: 2.8rem;
+}
 .ButtonContainer {
 
     display: flex;
     justify-content: space-between;
-    width:600px;
     margin: 0 auto;
-
-    &__button {
-        font-size: 1.4rem;
-        width:25%
-    }
-
-    &__linkButton {
-        font-size: 1.4rem;
-        width:100%
-    }
-
-
 }
+.width_600px{
+    width:600px;
+    button{
+        font-size: 1.4rem;
+        width:25%;
+    }
+}
+.width_70percent{
+    width:70%;
+    button{
+        font-size: 1.2rem;
+        width:45%;
+    }
+}
+.width_80percent{
+    width:80%;
+    button{
+        font-size: 3.5vw;
+        width:50%;
+        text-align: center;
+    }
+}
+
 </style>
