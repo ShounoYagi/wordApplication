@@ -1,4 +1,4 @@
-<template>
+<template >
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-12" v-bind:class="$mq | mq({ phone: 'formContainer_phone', tablet: 'formContainer_tablet', other: 'formContainer_pc' })">
@@ -7,6 +7,11 @@
                     <div class="form-group row">
                         <label for="Name" class="col-sm-1 col-form-label">セット名</label>
                         <input type="text" class="col-sm-4 form-control" id="Name" v-model="questionSet.Name">
+                    </div>
+                    <div class="form-group row">
+                        <p class="error">
+                            {{ Validation.setName }}
+                        </p>
                     </div>
                     <div class="form-group row">
                         <label for="QuestionsNum" class="col-sm-1 col-form-label">問題数</label>
@@ -73,7 +78,10 @@
                 questions: [],
                 questionSet: {},
                 groupingArray:[],
-                multipleSelection: []
+                multipleSelection: [],
+                Validation:{
+                    setName: ""
+                }
             }
         },
         methods: {
@@ -132,7 +140,23 @@
 
             },
             submit() {
+                if(this.validate()){
+                   this.update();
+                }
+            },
+            validate() {
+                let correctFlag = true;
 
+                if(this.questionSet.Name === ""){
+                    correctFlag = false;
+                    this.Validation.setName = "セット名を入力してください";
+                }else{
+                    this.Validation.setName = "";
+                }
+                
+                return correctFlag;
+            },
+            update() {
                 this.shapeQSetData();
 
                 api({

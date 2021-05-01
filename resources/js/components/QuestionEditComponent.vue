@@ -6,14 +6,23 @@
                     <div class="form-group column">
                         <label for="QuestionText" class="col-sm-9 col-form-label">問題文</label>
                        <input type="text" class="col-sm-9 form-control"  id="QuestionText" v-model="question.QuestionText">
+                       <p class="error">
+                            {{ Validation.QuestionText }}
+                        </p>
                     </div>
                     <div class="form-group column">
                         <label for="Answer" class="col-sm-9 col-form-label">答え</label>
                         <input type="text" class="col-sm-9 form-control" id="Answer" v-model="question.Answer">
+                        <p class="error">
+                            {{ Validation.Answer }}
+                        </p>
                     </div>
                     <div class="form-group column">
                         <label for="Category1" class="col-sm- col-form-label">カテゴリー1</label>
                         <input type="text" class="col-sm-9 form-control" id="Category1" v-model="question.Category1">
+                        <p class="error">
+                            {{ Validation.Category1 }}
+                        </p>
                     </div>
                     <div class="form-group column">
                         <label for="Category2" class="col-sm-9 col-form-label">カテゴリー2</label>
@@ -40,7 +49,12 @@
         },
         data: function () {
             return {
-                question: {}
+                question: {},
+                Validation:{
+                    QuestionText: "",
+                    Answer: "",
+                    Category1:""
+                }
             }
         },
         methods: {
@@ -54,7 +68,38 @@
                     });
             },
             submit() {
-                 api({
+                 if(this.validate()){
+                   this.update();
+               }
+           },
+           validate() {
+               let correctFlag = true;
+
+               if(this.question.QuestionText === ""){
+                   correctFlag = false;
+                   this.Validation.QuestionText = "問題名を入力してください";
+               }else{
+                   this.Validation.QuestionText = "";
+               }
+
+               if(this.question.Answer === ""){
+                   correctFlag = false;
+                   this.Validation.Answer = "答えをを入力してください";
+               }else{
+                   this.Validation.Answer = "";
+               }
+
+               if(this.question.Category1 === ""){
+                   correctFlag = false;
+                   this.Validation.Category1 = "カテゴリー名は最低一つ入力してください";
+               }else{
+                   this.Validation.Category1 = "";
+               }
+
+                return correctFlag;
+           },
+           update() {
+               api({
                         method : 'put',
                         url    : '/api/questions/' + this.questionId,
                         data: this.question,

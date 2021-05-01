@@ -7,6 +7,9 @@
                     <div class="form-group column">
                         <label for="Name" class="col-sm-4 col-form-label">セット名</label>
                         <input type="text" class="col-sm-4 form-control" id="Name" v-model="setName">
+                        <p class="error">
+                            {{ Validation.setName }}
+                        </p>
                     </div>
                     <div class="form-group column">
                         <label for="QuestionsNum" class="col-sm-4 col-form-label">問題数</label>
@@ -71,7 +74,10 @@
                 setName:"",
                 questionSet: {},
                 groupingArray:[],
-                multipleSelection: []
+                multipleSelection: [],
+                Validation:{
+                    setName: ""
+                }
             }
        },
        methods: {
@@ -99,6 +105,23 @@
                 }
             },
             submit() {
+                if(this.validate()){
+                   this.register();
+                }
+            },
+            validate() {
+                let correctFlag = true;
+
+                if(this.setName === ""){
+                    correctFlag = false;
+                    this.Validation.setName = "セット名を入力してください";
+                }else{
+                    this.Validation.setName = "";
+                }
+                
+                return correctFlag;
+            },
+            register() {
                 this.shapeQSetData();
                 api({
                         method : 'post',
@@ -116,7 +139,6 @@
                                 this.$router.push({name: 'questionSets.list'});
                             });
                     });
-                
             },
             handleSelectionChange(val) {
                 this.multipleSelection = val;

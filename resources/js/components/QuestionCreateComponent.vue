@@ -6,14 +6,23 @@
                     <div class="form-group colum">
                         <label for="QuestionText" class="col-sm-9 col-form-label">問題文</label>
                         <input type="text" class="col-sm-9 form-control" id="QuestionText" v-model="question.QuestionText">
+                        <p class="error">
+                            {{ Validation.QuestionText }}
+                        </p>
                     </div>
                     <div class="form-group colum">
                         <label for="Answer" class="col-sm-9 col-form-label">答え</label>
                         <input type="text" class="col-sm-9 form-control" id="Answer" v-model="question.Answer">
+                        <p class="error">
+                            {{ Validation.Answer }}
+                        </p>
                     </div>
                     <div class="form-group colum">
                         <label for="Category1" class="col-sm-9 col-form-label">カテゴリー1</label>
                         <input type="text" class="col-sm-9 form-control" id="Category1" v-model="question.Category1">
+                        <p class="error">
+                            {{ Validation.Category1 }}
+                        </p>
                     </div>
                     <div class="form-group colum">
                         <label for="Category2" class="col-sm-9 col-form-label">カテゴリー2</label>
@@ -23,7 +32,7 @@
                         <label for="Category3" class="col-sm-9 col-form-label">カテゴリー3</label>
                         <input type="text" class="col-sm-9 form-control" id="Category3" v-model="question.Category3">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">登録</button>
                 </form>
             </div>
         </div>
@@ -36,7 +45,18 @@
     export default {
         data: function () {
            return {
-               question: {}
+                question: {
+                    QuestionText:"",
+                    Answer:"",
+                    Category1:"",
+                    Category2:"",
+                    Category3:""
+                },
+                Validation:{
+                    QuestionText: "",
+                    Answer: "",
+                    Category1:""
+                }
            }
        },
        computed:{
@@ -46,6 +66,37 @@
        },
        methods: {
            submit() {
+               if(this.validate()){
+                   this.register();
+               }
+           },
+           validate() {
+               let correctFlag = true;
+
+               if(this.question.QuestionText === ""){
+                   correctFlag = false;
+                   this.Validation.QuestionText = "問題名を入力してください";
+               }else{
+                   this.Validation.QuestionText = "";
+               }
+
+               if(this.question.Answer === ""){
+                   correctFlag = false;
+                   this.Validation.Answer = "答えをを入力してください";
+               }else{
+                   this.Validation.Answer = "";
+               }
+
+               if(this.question.Category1 === ""){
+                   correctFlag = false;
+                   this.Validation.Category1 = "カテゴリー名は最低一つ入力してください";
+               }else{
+                   this.Validation.Category1 = "";
+               }
+
+                return correctFlag;
+           },
+           register() {
                api({
                     method : 'post',
                     url    : '/api/questions',
@@ -53,7 +104,7 @@
                 })
                    .then((res) => {
                        this.$router.push({name: 'question.list'});
-                   });
+                });
            }
        }
     }
@@ -72,5 +123,8 @@
     .formContainer_phone{
         max-width:300px;
         width:80%
+    }
+    .error {
+        color:red;
     }
 </style>
