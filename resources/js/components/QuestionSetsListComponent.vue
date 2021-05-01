@@ -91,4 +91,7 @@
     .table{
         min-width: 300px;
     }
+    .el-row{
+        text-align: center;
+    }
 </style>
