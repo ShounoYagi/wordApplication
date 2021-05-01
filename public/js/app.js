@@ -4020,32 +4020,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -4483,34 +4457,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _api_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/index */ "./resources/api/index.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -11234,7 +11180,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".table {\n  min-width: 1120px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".table {\n  min-width: 1120px;\n}\n.el-row {\n  text-align: center;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11306,7 +11252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".setsContainer {\n  min-width: 300px;\n}\n.table {\n  min-width: 300px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".setsContainer {\n  min-width: 300px;\n}\n.table {\n  min-width: 300px;\n}\n.el-row {\n  text-align: center;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -107102,42 +107048,60 @@ var render = function() {
                 fn: function(scope) {
                   return [
                     _c(
-                      "el-button",
-                      {
-                        attrs: { size: "mini", type: "primary" },
-                        on: {
-                          click: function($event) {
-                            return _vm.handleView(scope.row)
-                          }
-                        }
-                      },
-                      [_vm._v("表示")]
+                      "el-row",
+                      [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini", type: "primary" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleView(scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("表示")]
+                        )
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
-                      "el-button",
-                      {
-                        attrs: { size: "mini", type: "success" },
-                        on: {
-                          click: function($event) {
-                            return _vm.handleEdit(scope.row)
-                          }
-                        }
-                      },
-                      [_vm._v("編集")]
+                      "el-row",
+                      [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini", type: "success" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleEdit(scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("編集")]
+                        )
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
-                      "el-button",
-                      {
-                        attrs: { size: "mini", type: "danger" },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteQuestion(scope.row)
-                          }
-                        }
-                      },
-                      [_vm._v("削除")]
+                      "el-row",
+                      [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini", type: "danger" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteQuestion(scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("削除")]
+                        )
+                      ],
+                      1
                     )
                   ]
                 }
@@ -107524,42 +107488,60 @@ var render = function() {
                 fn: function(scope) {
                   return [
                     _c(
-                      "el-button",
-                      {
-                        attrs: { size: "mini", type: "primary" },
-                        on: {
-                          click: function($event) {
-                            return _vm.handleView(scope.row)
-                          }
-                        }
-                      },
-                      [_vm._v("表示")]
+                      "el-row",
+                      [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini", type: "primary" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleView(scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("表示")]
+                        )
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
-                      "el-button",
-                      {
-                        attrs: { size: "mini", type: "success" },
-                        on: {
-                          click: function($event) {
-                            return _vm.handleEdit(scope.row)
-                          }
-                        }
-                      },
-                      [_vm._v("編集")]
+                      "el-row",
+                      [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini", type: "success" },
+                            on: {
+                              click: function($event) {
+                                return _vm.handleEdit(scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("編集")]
+                        )
+                      ],
+                      1
                     ),
                     _vm._v(" "),
                     _c(
-                      "el-button",
-                      {
-                        attrs: { size: "mini", type: "danger" },
-                        on: {
-                          click: function($event) {
-                            return _vm.deleteQuestionSets(scope.row)
-                          }
-                        }
-                      },
-                      [_vm._v("削除")]
+                      "el-row",
+                      [
+                        _c(
+                          "el-button",
+                          {
+                            attrs: { size: "mini", type: "danger" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteQuestionSets(scope.row)
+                              }
+                            }
+                          },
+                          [_vm._v("削除")]
+                        )
+                      ],
+                      1
                     )
                   ]
                 }
