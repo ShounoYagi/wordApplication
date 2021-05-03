@@ -64,7 +64,11 @@
                         url    : '/api/questions/' + this.questionId,
                     })
                     .then((res) => {
-                        this.question = res;
+                        if(res.success){
+                            this.question = res.response;
+                        }else{
+                            alert(res.message);
+                        }
                     });
             },
             submit() {
@@ -105,7 +109,13 @@
                         data: this.question,
                     })
                    .then((res) => {
-                       this.$router.push({name: 'question.list'});
+                       if(res.success){
+                           console.log(res);
+                           this.$router.push({name: 'question.list'});
+                       }else{
+                           console.log(res);
+                           alert(res.errMsg);
+                       }
                    });
            }
         },
@@ -115,7 +125,7 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped>
     .formContainer_pc{
         min-width:600px;
         max-width:1000px;
@@ -131,5 +141,8 @@
     }
     .col-form-label{
         padding-left: 0;
+    }
+    .error {
+        color:red;
     }
 </style>

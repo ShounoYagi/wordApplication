@@ -102,15 +102,21 @@
                     url    : '/api/questions',
                     data : this.question
                 })
-                   .then((res) => {
-                       this.$router.push({name: 'question.list'});
-                });
+                .then((res) => {
+                    if(res.success){
+                        console.log(res);
+                        this.$router.push({name: 'question.list'})
+                    }else{
+                        console.log(res);
+                        alert(res.errMsg);
+                    }
+                })
            }
        }
     }
 </script>
 
-<style lang="scss">
+<style scoped>
     .formContainer_pc{
         min-width:600px;
         max-width:1000px;

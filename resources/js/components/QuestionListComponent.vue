@@ -65,7 +65,11 @@
                     url    : '/api/questions'
                 })
                     .then((respData) => {
-                        this.questions = respData;
+                        if(respData.success){
+                            this.questions = respData.response;
+                        }else{
+                            alert(respData.message);
+                        }
                     })
             },
             deleteQuestion(rowData) {
@@ -74,7 +78,12 @@
                         url    : '/api/questions/' + rowData.id,
                     })
                    .then((res) => {
-                       this.getQuestions();
+                       if(res.success){
+                            this.getQuestions();
+                       }else{
+                           alert(res.message);
+                       }
+                       
                    });
             },
             handleEdit(rowData) {

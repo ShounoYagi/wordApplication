@@ -52,7 +52,7 @@
                         </el-table-column>
                     </el-table>
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">登録</button>
                 </form>
             </div>
         </div>
@@ -87,7 +87,11 @@
                     url    : '/api/questions'
                 })
                     .then((respData) => {
-                        this.questions = respData;
+                        if(respData.success){
+                            this.questions = respData.response;
+                        }else{
+                            alert(respData.message);
+                        }
                     })
             },
             shapeQSetData() {
@@ -153,7 +157,7 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped>
     .formContainer_pc{
         min-width:1000px;
     }
@@ -164,5 +168,8 @@
     .formContainer_phone{
         max-width:300px;
         width:80%
+    }
+    .error {
+        color:red;
     }
 </style>

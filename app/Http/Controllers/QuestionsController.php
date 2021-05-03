@@ -4,35 +4,71 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Question;
+use Validator;
 
 class QuestionsController extends Controller
 {
     public function index()
     {
-        return Question::all();
+        $questions = Question::all();
+        if($questions == null){
+            return response()->error("問題の取得に失敗しました");
+        }else{
+            return response()->success($questions);
+        }
+        
     }
 
     public function show(Question $question)
     {
-        return $question;
+        if($question == null){
+            return response()->error("問題の取得に失敗しました");
+        }else{
+            return response()->success($question);
+        }
+
     }
 
     public function store(Request $request)
     {
-        return Question::create($request->all());
+        $validator = Validator::make($request->all(), [
+            'QuestionText' => 'required',
+            'Answer' =>'required',
+            'Category1' =>'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->error($validator->errors()->all());
+          } else {
+            $questions = Question::create($request->all());
+            return response()->success($questions);
+          }
     }
 
     public function update(Request $request, Question $question)
     {
-        $question->update($request->all());
+        $validator = Validator::make($request->all(), [
+            'QuestionText' => 'required',
+            'Answer' =>'required',
+            'Category2' =>'required',
+        ]);
 
-        return $question;
+        if ($validator->fails()) {
+            return response()->error($validator->errors()->all());
+          } else {
+            $question->update($request->all());
+            return response()->success($request->all());
+        }
     }
 
     public function destroy(Question $question)
      {
-        $question->delete();
-    
-        return $question;
+        $isDelete = $question->delete();
+
+        if($isDelete){
+            return response()->success($question);
+        }else{
+            return response()->error("問題の削除に失敗しました");
+        }
      }
 }

@@ -54,7 +54,7 @@
                         </el-table-column>
                     </el-table>
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">編集完了</button>
                 </form>
             </div>
         </div>
@@ -199,7 +199,7 @@
     }
 </script>
 
-<style lang="scss">
+<style scoped>
     .formContainer_pc{
         min-width:1000px;
     }
@@ -210,5 +210,8 @@
     .formContainer_phone{
         max-width:300px;
         width:80%
+    }
+    .error {
+        color:red;
     }
 </style>
