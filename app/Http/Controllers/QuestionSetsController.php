@@ -39,7 +39,12 @@ class QuestionSetsController extends Controller
 
             $allQuestionSetValue[] = $questionSetValue;
         };
-        return $allQuestionSetValue;
+
+        if($allQuestionSetValue == null){
+            return response()->apiResponse(20100 , "失敗" ,"問題セットの取得に失敗しました");
+        }else{
+            return response()->apiResponse(20000 , "成功" ,"問題セットの取得に成功しました" ,$allQuestionSetValue);
+        }
 
     }
 
@@ -68,26 +73,43 @@ class QuestionSetsController extends Controller
             "Questions"=>  $questions,
         );
 
-
-        return $questionSetValue;
+        if($questionSetValue == null){
+            return response()->apiResponse(20100 , "失敗" ,"問題セットの取得に失敗しました");
+        }else{
+            return response()->apiResponse(20000 , "成功" ,"問題セットの取得に成功しました" ,$questionSetValue);
+        }
     }
 
     public function store(Request $request)
     {
-        return QuestionSet::create($request->all());
+        $questionSet = QuestionSet::create($request->all());
+
+        if($questionSet == null){
+            return response()->apiResponse(20100 , "失敗" ,"問題セットの登録に失敗しました");
+        }else{
+            return response()->apiResponse(20000 , "成功" ,"問題セットの登録に成功しました" ,$questionSet);
+        }
     }
 
     public function update(Request $request, QuestionSet $questionSet)
     {
         $questionSet->update($request->all());
 
-        return $questionSet;
+        if($questionSet == null){
+            return response()->apiResponse(20100 , "失敗" ,"問題セットの更新に失敗しました");
+        }else{
+            return response()->apiResponse(20000 , "成功" ,"問題セットの更新に成功しました" ,$questionSet);
+        }
     }
 
     public function destroy(QuestionSet $questionSet)
      {
         $questionSet->delete();
-    
-        return $questionSet;
+
+        if($questionSet == null){
+            return response()->apiResponse(20100 , "失敗" ,"問題セットの削除に失敗しました");
+        }else{
+            return response()->apiResponse(20000 , "成功" ,"問題セットの削除に成功しました" ,$questionSet);
+        }
      }
 }

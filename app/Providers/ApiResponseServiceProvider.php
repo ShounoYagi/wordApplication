@@ -33,13 +33,22 @@ class ApiResponseServiceProvider extends ServiceProvider
         });
 
         // error
-        Response::macro('fatalError', function ($errMsg, array $errors = [], $status = ResponseStatus::HTTP_INTERNAL_SERVER_ERROR) {
+        Response::macro('fatalError', function ($errMsg = '', array $errors = [], $status = ResponseStatus::HTTP_INTERNAL_SERVER_ERROR) {
             return response()->json([
                 'success'  => false,
                 'status'   => $status,
                 'errMsg'   => $errMsg,
                 'errors'   => $errors
             ], $status);
+        });
+
+        Response::macro('apiResponse', function ($errorCode = '', $errorTitle='' ,$errorDetail='' ,$value = []) {
+            return response()->json([
+                'errorCode'  => $errorCode,
+                'errorTitle'   => $errorTitle,
+                'errorDetail'   => $errorDetail,
+                'value'   => $value
+            ]);
         });
     }
 }

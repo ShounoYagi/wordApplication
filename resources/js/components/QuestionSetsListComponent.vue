@@ -58,9 +58,17 @@
                     method : 'GET',
                     url    : '/api/questionSets'
                 })
-                    .then((respData) => {
-                        this.questionSets = respData;
+                    .then((res) => {
+                        if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
+                        }else{
+                            this.questionSets = res.value;
+                        }  
+                        
                     })
+                    .catch((res) => {
+                        alert(res);
+                    });
             },
             deleteQuestionSets(rowData) {
                 api({
@@ -68,8 +76,15 @@
                     url    : '/api/questionSets/' + rowData.id,
                 })
                    .then((res) => {
-                       this.getQuestionSets();
-                   });
+                       if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
+                        }else{
+                            this.getQuestionSets();
+                        }  
+                   })
+                   .catch((res) => {
+                        alert(res);
+                    });
             },
             handleEdit(rowData) {
                 this.$router.push({name: 'questionSets.edit', params: {questionSetId: String(rowData.id) }});

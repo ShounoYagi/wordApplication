@@ -64,13 +64,16 @@
                     method : 'GET',
                     url    : '/api/questions'
                 })
-                    .then((respData) => {
-                        if(respData.success){
-                            this.questions = respData.response;
+                    .then((res) => {
+                         if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
                         }else{
-                            alert(respData.message);
+                            this.questions = res.value;
                         }
                     })
+                    .catch((res) => {
+                        alert(res);
+                    });
             },
             deleteQuestion(rowData) {
                 api({
@@ -78,13 +81,15 @@
                         url    : '/api/questions/' + rowData.id,
                     })
                    .then((res) => {
-                       if(res.success){
+                        if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
+                        }else{
                             this.getQuestions();
-                       }else{
-                           alert(res.message);
-                       }
-                       
-                   });
+                        }
+                   })
+                   .catch((res) => {
+                        alert(res);
+                    });
             },
             handleEdit(rowData) {
                 this.$router.push({name: 'question.edit', params: {questionId: String(rowData.id) }});

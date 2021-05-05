@@ -3585,9 +3585,15 @@ __webpack_require__.r(__webpack_exports__);
       (0,_api_index__WEBPACK_IMPORTED_MODULE_0__.default)({
         method: 'GET',
         url: '/api/questionSet/' + this.questionSetId
-      }).then(function (respData) {
-        _this.questionSet = respData;
-        _this.questions = respData.Questions;
+      }).then(function (res) {
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this.questionSet = res.value;
+          _this.questions = res.value.Questions;
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     handleNextClick: function handleNextClick() {
@@ -3912,11 +3918,18 @@ __webpack_require__.r(__webpack_exports__);
         url: '/api/questions',
         data: this.question
       }).then(function (res) {
-        _this.$router.push({
-          name: 'question.list'
-        });
-      })["catch"](function () {
-        alert("API-error");
+        if (res.errorCode !== 20000) {
+          console.log(res.errorDetail);
+          alert(res.errorDetail);
+        } else {
+          console.log(res.errorDetail);
+
+          _this.$router.push({
+            name: 'question.list'
+          });
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     }
   }
@@ -4000,7 +4013,14 @@ __webpack_require__.r(__webpack_exports__);
         method: 'get',
         url: '/api/questions/' + this.questionId
       }).then(function (res) {
-        _this.question = res;
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this.question = res.value;
+          console.log(res);
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     submit: function submit() {
@@ -4042,9 +4062,15 @@ __webpack_require__.r(__webpack_exports__);
         url: '/api/questions/' + this.questionId,
         data: this.question
       }).then(function (res) {
-        _this2.$router.push({
-          name: 'question.list'
-        });
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this2.$router.push({
+            name: 'question.list'
+          });
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     }
   },
@@ -4132,8 +4158,14 @@ __webpack_require__.r(__webpack_exports__);
       (0,_api_index__WEBPACK_IMPORTED_MODULE_0__.default)({
         method: 'GET',
         url: '/api/questions'
-      }).then(function (respData) {
-        _this.questions = respData;
+      }).then(function (res) {
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this.questions = res.value;
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     deleteQuestion: function deleteQuestion(rowData) {
@@ -4143,7 +4175,13 @@ __webpack_require__.r(__webpack_exports__);
         method: 'delete',
         url: '/api/questions/' + rowData.id
       }).then(function (res) {
-        _this2.getQuestions();
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this2.getQuestions();
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     handleEdit: function handleEdit(rowData) {
@@ -4279,8 +4317,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       (0,_api_index__WEBPACK_IMPORTED_MODULE_0__.default)({
         method: 'GET',
         url: '/api/questions'
-      }).then(function (respData) {
-        _this.questions = respData;
+      }).then(function (res) {
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this.questions = res.value;
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     shapeQSetData: function shapeQSetData() {
@@ -4333,17 +4377,30 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         url: '/api/questionSets',
         data: this.questionSet
       }).then(function (res) {
-        _this2.shapeGroupingData(res.id);
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+          return;
+        }
+
+        _this2.shapeGroupingData(res.value.id);
 
         (0,_api_index__WEBPACK_IMPORTED_MODULE_0__.default)({
           method: 'post',
           url: '/api/grouping',
           data: _this2.groupingArray
-        }).then(function (res) {
-          _this2.$router.push({
-            name: 'questionSets.list'
-          });
+        }).then(function (groupingRes) {
+          if (groupingRes.errorCode !== 20000) {
+            alert(groupingRes.errorDetail);
+          } else {
+            _this2.$router.push({
+              name: 'questionSets.list'
+            });
+          }
+        })["catch"](function (res) {
+          alert(res);
         });
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     handleSelectionChange: function handleSelectionChange(val) {
@@ -4473,10 +4530,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       (0,_api_index__WEBPACK_IMPORTED_MODULE_0__.default)({
         method: 'GET',
         url: '/api/questions'
-      }).then(function (respData) {
-        _this.questions = respData;
+      }).then(function (res) {
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this.questions = res.value;
 
-        _this.setDefaultChecked();
+          _this.setDefaultChecked();
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     getQuestionSet: function getQuestionSet() {
@@ -4558,7 +4621,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         url: '/api/questionSets/' + this.questionSetId,
         data: this.questionSet
       }).then(function (res) {
-        _this4.shapeGroupingData(res.id);
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+          return;
+        }
+
+        _this4.shapeGroupingData(res.value.id);
 
         (0,_api_index__WEBPACK_IMPORTED_MODULE_0__.default)({
           method: 'delete',
@@ -4569,11 +4637,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
             url: '/api/grouping',
             data: _this4.groupingArray
           }).then(function (res) {
-            _this4.$router.push({
-              name: 'questionSets.list'
-            });
+            if (res.errorCode !== 20000) {
+              alert(res.errorDetail);
+            } else {
+              _this4.$router.push({
+                name: 'questionSets.list'
+              });
+            }
+          })["catch"](function (res) {
+            alert(res);
           });
         });
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     handleSelectionChange: function handleSelectionChange(val) {
@@ -4662,8 +4738,14 @@ __webpack_require__.r(__webpack_exports__);
       (0,_api_index__WEBPACK_IMPORTED_MODULE_0__.default)({
         method: 'GET',
         url: '/api/questionSets'
-      }).then(function (respData) {
-        _this.questionSets = respData;
+      }).then(function (res) {
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this.questionSets = res.value;
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     deleteQuestionSets: function deleteQuestionSets(rowData) {
@@ -4673,7 +4755,13 @@ __webpack_require__.r(__webpack_exports__);
         method: 'delete',
         url: '/api/questionSets/' + rowData.id
       }).then(function (res) {
-        _this2.getQuestionSets();
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this2.getQuestionSets();
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     handleEdit: function handleEdit(rowData) {
@@ -4763,7 +4851,11 @@ __webpack_require__.r(__webpack_exports__);
         method: 'GET',
         url: '/api/questions/' + this.questionId
       }).then(function (res) {
-        _this.question = res;
+        if (res.success) {
+          _this.question = res.response;
+        } else {
+          alert(res.message);
+        }
       });
     }
   },
@@ -4798,8 +4890,8 @@ var onSuccess = function onSuccess(resp) {
   return Promise.resolve(resp.data);
 };
 
-var onError = function onError() {
-  throw new Error('API error.');
+var onError = function onError(res) {
+  throw new Error(res);
 }; // リクエストメソッド問わず同じ関数を用いる
 // api処理はこれを使いまわす
 
@@ -106875,7 +106967,7 @@ var render = function() {
                     staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "Category2" }
                   },
-                  [_vm._v("カテゴリー2")]
+                  [_vm._v("カテゴリー2(任意)")]
                 ),
                 _vm._v(" "),
                 _c("input", {
@@ -106908,7 +107000,7 @@ var render = function() {
                     staticClass: "col-sm-9 col-form-label",
                     attrs: { for: "Category3" }
                   },
-                  [_vm._v("カテゴリー3")]
+                  [_vm._v("カテゴリー3(任意)")]
                 ),
                 _vm._v(" "),
                 _c("input", {

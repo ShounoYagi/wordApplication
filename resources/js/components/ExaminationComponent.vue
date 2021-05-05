@@ -66,10 +66,17 @@
                     method : 'GET',
                     url    : '/api/questionSet/' + this.questionSetId
                 })
-                    .then((respData) => {
-                        this.questionSet = respData;
-                        this.questions = respData.Questions;
+                    .then((res) => {
+                        if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
+                        }else{
+                            this.questionSet = res.value;
+                            this.questions = res.value.Questions;
+                        }  
                     })
+                    .catch((res) => {
+                        alert(res);
+                    });
             }, 
             handleNextClick() {
                 this.activeQuestionIndex++;

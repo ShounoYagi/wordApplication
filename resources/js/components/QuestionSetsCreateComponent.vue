@@ -86,13 +86,16 @@
                     method : 'GET',
                     url    : '/api/questions'
                 })
-                    .then((respData) => {
-                        if(respData.success){
-                            this.questions = respData.response;
+                    .then((res) => {
+                         if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
                         }else{
-                            alert(respData.message);
+                            this.questions = res.value;
                         }
                     })
+                    .catch((res) => {
+                        alert(res);
+                    });
             },
             shapeQSetData() {
                 this.questionSet = {
@@ -133,15 +136,31 @@
                         data : this.questionSet
                     })
                     .then((res) => {
-                        this.shapeGroupingData(res.id);
+
+                        if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
+                            return;
+                        }
+                        this.shapeGroupingData(res.value.id);
                         api({
                                 method : 'post',
                                 url    : '/api/grouping',
                                 data : this.groupingArray
                             })
-                            .then((res) => {
-                                this.$router.push({name: 'questionSets.list'});
+                            .then((groupingRes) => {
+                                if(groupingRes.errorCode !== 20000){
+                                    alert(groupingRes.errorDetail);
+                                }else{
+                                    this.$router.push({name: 'questionSets.list'});
+                                }
+                                
+                            })
+                            .catch((res) => {
+                                alert(res);
                             });
+                    })
+                    .catch((res) => {
+                        alert(res);
                     });
             },
             handleSelectionChange(val) {

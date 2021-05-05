@@ -8,8 +8,8 @@ const onSuccess = (resp) => {
   }
   return Promise.resolve(resp.data)
 }
-const onError = () => {
-  throw new Error('API error.')
+const onError = (res) => {
+  throw new Error(res)
 }
 
 // リクエストメソッド問わず同じ関数を用いる

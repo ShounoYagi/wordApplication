@@ -90,10 +90,17 @@
                     method : 'GET',
                     url    : '/api/questions'
                 })
-                    .then((respData) => {
-                        this.questions = respData;
-                        this.setDefaultChecked();
+                    .then((res) => {
+                         if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
+                        }else{
+                            this.questions = res.value;
+                            this.setDefaultChecked();
+                        }       
                     })
+                    .catch((res) => {
+                        alert(res);
+                    });
             },
             getQuestionSet() {
                 api({
@@ -165,8 +172,12 @@
                         data : this.questionSet
                     })
                     .then((res) => {
+                        if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
+                            return;
+                        }
 
-                        this.shapeGroupingData(res.id);
+                        this.shapeGroupingData(res.value.id);
                         api({
                                 method : 'delete',
                                 url    : '/api/grouping/' + this.questionSetId
@@ -178,9 +189,19 @@
                                     data : this.groupingArray
                                 })
                                 .then((res) => {
-                                    this.$router.push({name: 'questionSets.list'});
+                                    if(res.errorCode !== 20000){
+                                        alert(res.errorDetail);
+                                    }else{
+                                        this.$router.push({name: 'questionSets.list'});
+                                    }      
+                                })
+                                .catch((res) => {
+                                    alert(res);
                                 });
                             });       
+                    })
+                    .catch((res) => {
+                        alert(res);
                     });
             },
             handleSelectionChange(val) {

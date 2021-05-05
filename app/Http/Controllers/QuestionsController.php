@@ -12,9 +12,9 @@ class QuestionsController extends Controller
     {
         $questions = Question::all();
         if($questions == null){
-            return response()->error("問題の取得に失敗しました");
+            return response()->apiResponse(20100 , "失敗","問題の取得に失敗しました");
         }else{
-            return response()->success($questions);
+            return response()->apiResponse(20000 , "成功","問題の取得に成功しました" ,$questions);
         }
         
     }
@@ -22,9 +22,9 @@ class QuestionsController extends Controller
     public function show(Question $question)
     {
         if($question == null){
-            return response()->error("問題の取得に失敗しました");
+            return response()->apiResponse(20100 , "失敗","問題の取得に失敗しました");
         }else{
-            return response()->success($question);
+            return response()->apiResponse(20000 , "成功","問題の取得に成功しました" ,$question);
         }
 
     }
@@ -38,11 +38,11 @@ class QuestionsController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->error($validator->errors()->all());
-          } else {
+            return response()->apiResponse(20100 , "バリデーションエラー",$validator->errors()->all() ,[]);
+        }else {
             $questions = Question::create($request->all());
-            return response()->success($questions);
-          }
+            return response()->apiResponse(20000 , "成功" ,"問題登録を成功しました。" ,$questions);
+        }
     }
 
     public function update(Request $request, Question $question)
@@ -50,25 +50,28 @@ class QuestionsController extends Controller
         $validator = Validator::make($request->all(), [
             'QuestionText' => 'required',
             'Answer' =>'required',
-            'Category2' =>'required',
+            'Category1' =>'required',
         ]);
 
         if ($validator->fails()) {
-            return response()->error($validator->errors()->all());
-          } else {
+            return response()->apiResponse(20100 , "バリデーションエラー",$validator->errors()->all() ,[]);
+        }else {
             $question->update($request->all());
-            return response()->success($request->all());
+            return response()->apiResponse(20000 , "成功" ,"問題の更新に成功しました。" ,$request->all());
         }
+
     }
 
     public function destroy(Question $question)
      {
         $isDelete = $question->delete();
 
-        if($isDelete){
-            return response()->success($question);
-        }else{
-            return response()->error("問題の削除に失敗しました");
+        if ($isDelete) {
+            return response()->apiResponse(20000 , "成功" ,"問題の削除に成功しました。" ,$question);
+           
+        }else {
+            return response()->apiResponse(20100 , "失敗","問題の削除に失敗しました。");
         }
+
      }
 }

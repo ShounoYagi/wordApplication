@@ -64,11 +64,15 @@
                         url    : '/api/questions/' + this.questionId,
                     })
                     .then((res) => {
-                        if(res.success){
-                            this.question = res.response;
+                        if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
                         }else{
-                            alert(res.message);
+                            this.question = res.value;
+                            console.log(res);
                         }
+                    })
+                    .catch((res) => {
+                        alert(res);
                     });
             },
             submit() {
@@ -109,14 +113,15 @@
                         data: this.question,
                     })
                    .then((res) => {
-                       if(res.success){
-                           console.log(res);
-                           this.$router.push({name: 'question.list'});
-                       }else{
-                           console.log(res);
-                           alert(res.errMsg);
-                       }
-                   });
+                        if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
+                        }else{
+                            this.$router.push({name: 'question.list'});
+                        }
+                   })
+                   .catch((res) => {
+                        alert(res);
+                    });
            }
         },
         created() {

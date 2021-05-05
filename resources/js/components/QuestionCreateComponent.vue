@@ -25,11 +25,11 @@
                         </p>
                     </div>
                     <div class="form-group colum">
-                        <label for="Category2" class="col-sm-9 col-form-label">カテゴリー2</label>
+                        <label for="Category2" class="col-sm-9 col-form-label">カテゴリー2(任意)</label>
                         <input type="text" class="col-sm-9 form-control" id="Category2" v-model="question.Category2">
                     </div>
                     <div class="form-group colum">
-                        <label for="Category3" class="col-sm-9 col-form-label">カテゴリー3</label>
+                        <label for="Category3" class="col-sm-9 col-form-label">カテゴリー3(任意)</label>
                         <input type="text" class="col-sm-9 form-control" id="Category3" v-model="question.Category3">
                     </div>
                     <button type="submit" class="btn btn-primary">登録</button>
@@ -103,14 +103,17 @@
                     data : this.question
                 })
                 .then((res) => {
-                    if(res.success){
-                        console.log(res);
-                        this.$router.push({name: 'question.list'})
+                    if(res.errorCode !== 20000){
+                        console.log(res.errorDetail);
+                        alert(res.errorDetail);
                     }else{
-                        console.log(res);
-                        alert(res.errMsg);
+                        console.log(res.errorDetail);
+                        this.$router.push({name: 'question.list'})
                     }
                 })
+                .catch((res) => {
+                        alert(res);
+                    });
            }
        }
     }
