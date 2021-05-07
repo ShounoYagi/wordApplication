@@ -107,10 +107,17 @@
                     method : 'GET',
                     url    : '/api/questionSet/' + this.questionSetId
                 })
-                    .then((respData) => {
-                        this.questionSet = respData;
-                        this.setDefaultChecked();
+                    .then((res) => {
+                        if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
+                        }else{
+                            this.questionSet = res.value;
+                            this.setDefaultChecked();
+                        }          
                     })
+                    .catch((res) => {
+                        alert(res);
+                    });
             },
             existRowInQuestions(rowId) {
                 //なぜか最初にundefinedになるから応急処置

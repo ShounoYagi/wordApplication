@@ -4144,6 +4144,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -4548,10 +4549,16 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       (0,_api_index__WEBPACK_IMPORTED_MODULE_0__.default)({
         method: 'GET',
         url: '/api/questionSet/' + this.questionSetId
-      }).then(function (respData) {
-        _this2.questionSet = respData;
+      }).then(function (res) {
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
+        } else {
+          _this2.questionSet = res.value;
 
-        _this2.setDefaultChecked();
+          _this2.setDefaultChecked();
+        }
+      })["catch"](function (res) {
+        alert(res);
       });
     },
     existRowInQuestions: function existRowInQuestions(rowId) {
@@ -4679,6 +4686,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _api_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../api/index */ "./resources/api/index.js");
+//
 //
 //
 //
@@ -107318,7 +107326,10 @@ var render = function() {
     [
       _c(
         "el-table",
-        { staticStyle: { width: "100%" }, attrs: { data: _vm.questions } },
+        {
+          staticStyle: { width: "100%" },
+          attrs: { data: _vm.questions, height: "700" }
+        },
         [
           _c("el-table-column", {
             attrs: { label: "問題文", prop: "QuestionText" }
@@ -107771,7 +107782,10 @@ var render = function() {
     [
       _c(
         "el-table",
-        { staticStyle: { width: "100%" }, attrs: { data: _vm.questionSets } },
+        {
+          staticStyle: { width: "100%" },
+          attrs: { data: _vm.questionSets, height: "700" }
+        },
         [
           _c("el-table-column", { attrs: { label: "セット名", prop: "Name" } }),
           _vm._v(" "),

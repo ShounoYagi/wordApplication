@@ -3,7 +3,8 @@
 
         <el-table
             :data="questions"
-            style="width: 100%">
+            style="width: 100%"
+            height="700">
             <el-table-column
                 label="問題文"
                 prop="QuestionText">
