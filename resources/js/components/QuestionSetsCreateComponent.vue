@@ -143,6 +143,7 @@
                         }
                         this.shapeGroupingData(res.value.id);
                         api({
+                            
                                 method : 'post',
                                 url    : '/api/grouping',
                                 data : this.groupingArray
