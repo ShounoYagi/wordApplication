@@ -50,11 +50,14 @@
                     url    : '/api/questions/' + this.questionId
                 })
                     .then((res) => {
-                        if(res.success){
-                            this.question = res.response;
+                        if(res.errorCode !== 20000){
+                            alert(res.errorDetail);
                         }else{
-                            alert(res.message);
+                            this.question = res.value;
                         }
+                    })
+                    .catch((res) => {
+                        alert(res);
                     });
             }
         },

@@ -4860,11 +4860,13 @@ __webpack_require__.r(__webpack_exports__);
         method: 'GET',
         url: '/api/questions/' + this.questionId
       }).then(function (res) {
-        if (res.success) {
-          _this.question = res.response;
+        if (res.errorCode !== 20000) {
+          alert(res.errorDetail);
         } else {
-          alert(res.message);
+          _this.question = res.value;
         }
+      })["catch"](function (res) {
+        alert(res);
       });
     }
   },
