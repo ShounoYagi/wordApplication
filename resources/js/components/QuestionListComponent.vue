@@ -1,6 +1,7 @@
 <template>
     <div class="container">
 
+
         <el-table
             :data="questions"
             style="width: 100%"
