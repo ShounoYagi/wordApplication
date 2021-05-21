@@ -63,6 +63,7 @@
         },
         created() {
             this.getQuestion();
+            
         }
     }
 </script>
