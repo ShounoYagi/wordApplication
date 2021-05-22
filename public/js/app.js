@@ -11332,7 +11332,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".btn {\n  min-width: 100px;\n}\n.buttonContainer {\n  min-width: 550px;\n}\n.menu .bm-burger-bars {\n  background-color: white;\n}\n.menu .bm-burger-button {\n  top: 13px;\n  left: 95% !important;\n}\n.menu .bm-cross-button {\n  right: 120px !important;\n}\n.menu .bm-item-list {\n  font-size: 16px;\n  min-width: 150px;\n  margin-left: 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".btn {\n  min-width: 100px;\n}\n.link {\n  width: 95%;\n}\n.buttonContainer {\n  min-width: 550px;\n}\n.menu .bm-burger-bars {\n  background-color: white;\n}\n.menu .bm-burger-button {\n  top: 13px;\n  left: 95% !important;\n}\n.menu .bm-cross-button {\n  right: 120px !important;\n}\n.menu .bm-item-list {\n  font-size: 16px;\n  min-width: 150px;\n  margin-left: 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -106629,23 +106629,33 @@ var render = function() {
               [
                 _c("slide", { attrs: { right: "", width: "170" } }, [
                   _c("a", { attrs: { id: "home", href: "/questions" } }, [
-                    _c("span", [_vm._v("問題一覧")])
+                    _c("span", { staticClass: "link" }, [_vm._v("問題一覧")])
                   ]),
                   _vm._v(" "),
                   _c(
                     "a",
                     { attrs: { id: "about", href: "/questions/create" } },
-                    [_c("span", [_vm._v("新規問題登録")])]
+                    [
+                      _c("span", { staticClass: "link" }, [
+                        _vm._v("新規問題登録")
+                      ])
+                    ]
                   ),
                   _vm._v(" "),
                   _c("a", { attrs: { id: "contact", href: "/questionSets" } }, [
-                    _c("span", [_vm._v("問題セット一覧")])
+                    _c("span", { staticClass: "link" }, [
+                      _vm._v("問題セット一覧")
+                    ])
                   ]),
                   _vm._v(" "),
                   _c(
                     "a",
                     { attrs: { id: "contact", href: "/questionSets/create" } },
-                    [_c("span", [_vm._v("問題セット作成")])]
+                    [
+                      _c("span", { staticClass: "link" }, [
+                        _vm._v("問題セット作成")
+                      ])
+                    ]
                   )
                 ])
               ],

@@ -8,16 +8,16 @@
                         <div class="menu">
                             <slide right width="170">
                                 <a id="home" href="/questions">
-                                <span>問題一覧</span>
+                                <span class="link">問題一覧</span>
                                 </a>
                                 <a id="about" href="/questions/create">
-                                <span>新規問題登録</span>
+                                <span class="link">新規問題登録</span>
                                 </a>
                                 <a id="contact" href="/questionSets">
-                                <span>問題セット一覧</span>
+                                <span class="link">問題セット一覧</span>
                                 </a>
                                 <a id="contact" href="/questionSets/create">
-                                <span>問題セット作成</span>
+                                <span class="link">問題セット作成</span>
                                 </a>
                             </slide>
                         </div>
@@ -54,6 +54,9 @@
 <style lang="scss">
     .btn{
         min-width:100px;
+    }
+    .link{
+        width:95%;
     }
     .buttonContainer{
         min-width:550px;
