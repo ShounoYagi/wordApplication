@@ -95,7 +95,7 @@
                             alert(res.errorDetail);
                         }else{
                             this.questions = res.value;
-                            this.setDefaultChecked();
+                            this.getQuestionSet();
                         }       
                     })
                     .catch((res) => {
@@ -220,7 +220,6 @@
             
         },
         created() {
-            this.getQuestionSet();
             this.getQuestions();
         }
         

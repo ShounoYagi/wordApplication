@@ -4538,7 +4538,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         } else {
           _this.questions = res.value;
 
-          _this.setDefaultChecked();
+          _this.getQuestionSet();
         }
       })["catch"](function (res) {
         alert(res);
@@ -4668,7 +4668,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   created: function created() {
-    this.getQuestionSet();
     this.getQuestions();
   }
 });
